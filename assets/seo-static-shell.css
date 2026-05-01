@@ -1,0 +1,72 @@
+/* Static HTML shell for crawlers & no-JS; removed from DOM once the SPA mounts.
+   Z-index keeps this above #root so fixed/fullscreen React layers do not hide it
+   until we intentionally remove it (fixes “black page” in some crawlers). */
+.seo-static-fallback {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 2.5rem;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #e2e8f0;
+  background: #0f172a;
+  line-height: 1.55;
+  /* Klikovi prolaze na React (#root) dok je sloj još u DOM-u — inače se forme ne mogu ispuniti */
+  pointer-events: none;
+}
+
+.seo-static-fallback h1 {
+  font-size: clamp(1.35rem, 4vw, 1.85rem);
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+  color: #f8fafc;
+}
+
+.seo-static-fallback h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+  color: #f1f5f9;
+}
+
+.seo-static-fallback p {
+  margin: 0 0 0.75rem;
+  color: #cbd5e1;
+}
+
+.seo-static-fallback ul {
+  margin: 0.25rem 0 0.75rem 1.1rem;
+  padding: 0;
+  color: #94a3b8;
+}
+
+.seo-static-fallback a {
+  color: #f6c344;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  pointer-events: auto;
+}
+
+.seo-static-fallback a:hover {
+  color: #fcd34d;
+}
+
+.seo-static-fallback .seo-muted {
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+/* App paints behind the SEO overlay until the overlay is removed from the DOM */
+#root {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "redirects": [
+    {
+      "source": "/favicon.ico",
+      "destination": "/favicon.svg",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!api/|assets/|favicon\\.svg|robots\\.txt|sitemap\\.xml|og-image\\.png|placeholder\\.svg|[^/]+\\.(css|html|php)$).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

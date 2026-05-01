@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <!-- Favicon; data-URI radi i ako /favicon.* zaglavi u SPA rewrite -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cpolygon%20points%3D%2225%2C20%2085%2C20%2050%2C52%2085%2C52%2015%2C80%2050%2C48%2025%2C48%22%20fill%3D%22%23F6C344%22%2F%3E%3C%2Fsvg%3E" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- Cookiebot / GTM / GA4: dodaj vlastiti domain ID za split-transfers.eu (ne koristiti ID s dubrovnik-transfers.hr). -->
+  <!-- Web3Forms: javni access key — slanje ide iz preglednika (Free plan ne dozvoljava pouzdan server→Web3Forms). Zamijeni ako rotiraš ključ. -->
+  <script>window.WEB3FORMS_ACCESS_KEY = "3c15f96b-6e07-4268-87ff-0a2bf536fb47";</script>
+  <title>Split Transfers - Professional Airport &amp; City Transfer Service</title>
+  <meta name="description"
+    content="Book reliable private transfers in Split. Professional drivers, fixed prices, 24/7 service. Airport (SPU), city, Trogir, Makarska and Dalmatia connections." />
+  <meta name="author" content="Split Transfers" />
+  <link rel="stylesheet" crossorigin href="/assets/index-oFzXFanO.css">
+  <link rel="stylesheet" href="/assets/responsive-tweaks.css?v=3">
+  <link rel="stylesheet" href="/assets/seo-static-shell.css?v=4">
+  <link rel="canonical" href="https://www.split-transfers.eu/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Split Transfers - Professional Airport &amp; City Transfer Service" />
+  <meta property="og:description"
+    content="Book reliable private transfers in Split. Professional drivers, fixed prices, 24/7 service." />
+  <meta property="og:url" content="https://www.split-transfers.eu/" />
+  <meta property="og:image" content="https://www.split-transfers.eu/favicon.svg" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"TaxiService","name":"Split Transfers","url":"https://www.split-transfers.eu/","image":"https://www.split-transfers.eu/favicon.svg","email":"splittransfers.eu@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Split","addressCountry":"HR"},"areaServed":[{"@type":"AdministrativeArea","name":"Split-Dalmatia County"},{"@type":"City","name":"Split"}],"priceRange":"€€","description":"Private airport and city transfers in Split — fixed prices, professional drivers, 24/7 service."}
+  </script>
+</head>
+
+<body>
+  <main id="seo-static-fallback" class="seo-static-fallback">
+    <h1>Split airport &amp; city private transfers</h1>
+    <p>Book reliable <strong>private transfers in Split</strong> — airport pickups, city rides and connections across
+      central Dalmatia. Professional drivers, <strong>fixed prices</strong>, <strong>24/7</strong> availability.</p>
+    <p class="seo-muted">The full booking app loads in your browser; this block is plain HTML for search engines and
+      accessibility.</p>
+    <h2>Popular routes</h2>
+    <ul>
+      <li><a href="/transfers/Split-airport/">Split Airport (SPU) transfers</a></li>
+      <li><a href="/transfers/split-to-dubrovnik/">Split → Dubrovnik (long distance)</a></li>
+      <li><a href="/hr/">Hrvatski</a> · <a href="/de/">Deutsch</a> · <a href="/it/">Italiano</a> · <a href="/">English</a></li>
+    </ul>
+    <h2>Contact</h2>
+    <p><a href="mailto:splittransfers.eu@gmail.com">splittransfers.eu@gmail.com</a> · Split, Croatia</p>
+  </main>
+  <noscript>
+    <div class="seo-static-fallback">
+      <p>JavaScript is required for the live booking form. Email <a
+          href="mailto:splittransfers.eu@gmail.com">splittransfers.eu@gmail.com</a> to book a transfer.</p>
+    </div>
+  </noscript>
+  <div id="root">
+    <p data-initial-load
+      style="margin:0;padding:2rem;font-family:system-ui,sans-serif;color:#94a3b8">Učitavanje…</p>
+  </div>
+  <script>
+    (function () {
+      var root = document.getElementById("root");
+      var seo = document.getElementById("seo-static-fallback");
+      if (!root || !seo) return;
+      var obs;
+      var t;
+      function removeSeoOverlay() {
+        clearTimeout(t);
+        if (obs) obs.disconnect();
+        var el = document.getElementById("seo-static-fallback");
+        if (el && el.parentNode) el.remove();
+      }
+      function tryRemove() {
+        if (root.querySelector("[data-initial-load]")) return;
+        var text = (root.innerText || "").replace(/\s+/g, " ").trim();
+        var sections = root.querySelectorAll("section").length;
+        if (text.length < 1350 && sections < 2) return;
+        clearTimeout(t);
+        t = setTimeout(removeSeoOverlay, 400);
+      }
+      obs = new MutationObserver(tryRemove);
+      obs.observe(root, { childList: true, subtree: true, characterData: true });
+      tryRemove();
+      setTimeout(function () { if (obs) obs.disconnect(); }, 45000);
+      /* Prva interakcija: makni SEO sloj odmah da korisnik uvijek može do formi */
+      function onFirstAction() {
+        removeSeoOverlay();
+        document.removeEventListener("pointerdown", onFirstAction, true);
+        document.removeEventListener("keydown", onFirstAction, true);
+      }
+      document.addEventListener("pointerdown", onFirstAction, true);
+      document.addEventListener("keydown", onFirstAction, true);
+    })();
+  </script>
+  <script type="module" crossorigin src="/assets/index-BAd8RW6B.js?v=32"></script>
+</body>
+
+</html>
