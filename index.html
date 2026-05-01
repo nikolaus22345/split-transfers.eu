@@ -15,7 +15,7 @@
     content="Book reliable private transfers in Split. Professional drivers, fixed prices, 24/7 service. Airport (SPU), city, Trogir, Makarska and Dalmatia connections." />
   <meta name="author" content="Split Transfers" />
   <link rel="stylesheet" crossorigin href="/assets/index-oFzXFanO.css">
-  <link rel="stylesheet" href="/assets/responsive-tweaks.css?v=3">
+  <link rel="stylesheet" href="/assets/responsive-tweaks.css?v=4">
   <link rel="stylesheet" href="/assets/seo-static-shell.css?v=4">
   <link rel="canonical" href="https://www.split-transfers.eu/" />
   <meta property="og:type" content="website" />
@@ -90,7 +90,51 @@
       document.addEventListener("keydown", onFirstAction, true);
     })();
   </script>
-  <script type="module" crossorigin src="/assets/index-BAd8RW6B.js?v=32"></script>
+  <script>
+    (function () {
+      var root = document.getElementById("root");
+      if (!root) return;
+
+      function looksLikePriceText(text) {
+        if (!text) return false;
+        var normalized = text.replace(/\s+/g, " ").trim();
+        if (!normalized) return false;
+        return /€\s*\d+([.,]\d+)?/.test(normalized) ||
+          /starting from/i.test(normalized) ||
+          /total price/i.test(normalized) ||
+          /^from\s+€\s*\d+/i.test(normalized);
+      }
+
+      function replacePriceElement(el) {
+        if (!el || el.children.length > 0) return;
+        var text = (el.textContent || "").replace(/\s+/g, " ").trim();
+        if (!looksLikePriceText(text)) return;
+        el.textContent = "Na upit";
+        el.classList.add("on-request-badge");
+      }
+
+      function cleanPrices() {
+        var all = root.querySelectorAll("*");
+        for (var i = 0; i < all.length; i++) {
+          replacePriceElement(all[i]);
+        }
+      }
+
+      var timer;
+      var observer = new MutationObserver(function () {
+        clearTimeout(timer);
+        timer = setTimeout(cleanPrices, 80);
+      });
+      observer.observe(root, { childList: true, subtree: true, characterData: true });
+
+      document.addEventListener("DOMContentLoaded", cleanPrices);
+      window.addEventListener("load", cleanPrices);
+      cleanPrices();
+      setTimeout(cleanPrices, 1200);
+      setTimeout(cleanPrices, 3000);
+    })();
+  </script>
+  <script type="module" crossorigin src="/assets/index-BAd8RW6B.js?v=33"></script>
 </body>
 
 </html>
