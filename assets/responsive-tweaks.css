@@ -30,7 +30,7 @@ body {
 
 /* Zamjena cijena prikazom "On request" u cijan boji */
 #root .on-request-badge {
-  color: #22d3ee !important;
-  font-weight: 700;
-  letter-spacing: 0.01em;
+  color: #ffffff !important;
+  font: inherit;
+  letter-spacing: inherit;
 }

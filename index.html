@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="google-site-verification" content="roMOMa8j1JxPNAd_Ui-5wPYd4Xs-FDWIEbHpfhe8iZw" />
   <!-- Favicon; data-URI radi i ako /favicon.* zaglavi u SPA rewrite -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cpolygon%20points%3D%2225%2C20%2085%2C20%2050%2C52%2085%2C52%2015%2C80%2050%2C48%2025%2C48%22%20fill%3D%22%23F6C344%22%2F%3E%3C%2Fsvg%3E" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -100,8 +101,6 @@
         var normalized = text.replace(/\s+/g, " ").trim();
         if (!normalized) return false;
         return /€\s*\d+([.,]\d+)?/.test(normalized) ||
-          /starting from/i.test(normalized) ||
-          /total price/i.test(normalized) ||
           /^from\s+€\s*\d+/i.test(normalized);
       }
 
