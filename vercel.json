@@ -10,7 +10,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!api/|assets/|favicon\\.svg|robots\\.txt|sitemap\\.xml|og-image\\.png|placeholder\\.svg|[^/]+\\.(css|html|php)$).*)",
+      "source": "/((?!api/|assets/|favicon\\.svg|robots\\.txt|sitemap\\.xml|og-image\\.png|placeholder\\.svg).*)",
       "destination": "/index.html"
     }
   ]
