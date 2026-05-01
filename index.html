@@ -95,6 +95,8 @@
     (function () {
       var root = document.getElementById("root");
       if (!root) return;
+      var isCroatian = /^\/hr(\/|$)/i.test(window.location.pathname);
+      var onRequestLabel = isCroatian ? "Na upit" : "On request";
 
       function looksLikePriceText(text) {
         if (!text) return false;
@@ -108,7 +110,12 @@
         if (!el || el.children.length > 0) return;
         var text = (el.textContent || "").replace(/\s+/g, " ").trim();
         if (!looksLikePriceText(text)) return;
-        el.textContent = "Na upit";
+        var cardText = ((el.closest("article, li, .card, [class*='card'], [class*='vehicle']") || el.parentElement || el).innerText || "");
+        if (/get free quote|zatrazi ponudu|get a quote/i.test(cardText)) {
+          el.remove();
+          return;
+        }
+        el.textContent = onRequestLabel;
         el.classList.add("on-request-badge");
       }
 
@@ -133,7 +140,7 @@
       setTimeout(cleanPrices, 3000);
     })();
   </script>
-  <script type="module" crossorigin src="/assets/index-BAd8RW6B.js?v=33"></script>
+  <script type="module" crossorigin src="/assets/index-BAd8RW6B.js?v=34"></script>
 </body>
 
 </html>
